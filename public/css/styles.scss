@@ -87,9 +87,16 @@ body {
         ul {
             list-style-type: none;
             li {
+                position: relative;
                 border-bottom: 1px solid var(--default-black);
                 padding: 12px;
                 font-size: 16px;
+
+                a {
+                    position: absolute;
+                    right: 10px;
+                    top: 9px;
+                }
             }
         }
 

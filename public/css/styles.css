@@ -80,9 +80,15 @@ body {
   list-style-type: none;
 }
 .container .all-tasks ul li {
+  position: relative;
   border-bottom: 1px solid var(--default-black);
   padding: 12px;
   font-size: 16px;
+}
+.container .all-tasks ul li a {
+  position: absolute;
+  right: 10px;
+  top: 9px;
 }
 
 .btn {
