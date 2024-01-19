@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap");
+:root {
+  --green-100: #d5e8d9;
+  --gray-100: #f1f7f2;
+  --lilac-100: #dfe7ff;
+  --pink-200: #ffb8ce;
+  --blue-200: #8ce9ff;
+  --lilac-200: #c5b8ff;
+  --yellow-200: #FCE0A2;
+  --yellow-300: #ffea6f;
+  --default-black: #000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "Spline Sans Mono", monospace;
+  background: var(--lilac-100);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 5px 7px var(--default-black);
+  background-color: var(--lilac-200);
+  overflow: hidden;
+}
+.container .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 16px;
+}
+.container .header h2 {
+  font-weight: 700;
+}
+.container .details {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.container .add-task {
+  margin-bottom: 16px;
+  width: 80%;
+}
+.container .add-task input[type=text] {
+  font-family: "Spline Sans Mono", monospace;
+  font-size: 0.8rem;
+  border: 2px solid var(--default-black);
+  box-shadow: 4px 6px var(--default-black);
+  margin-top: 16px;
+  padding: 12px;
+  width: 100%;
+  outline: none;
+  transition: 0.2s;
+}
+.container .all-tasks {
+  border: 3px solid var(--default-black);
+  padding: 3px;
+  height: 400px;
+  overflow-y: scroll;
+  width: 80%;
+  background-color: white;
+}
+.container .all-tasks ul {
+  list-style-type: none;
+}
+.container .all-tasks ul li {
+  border-bottom: 1px solid var(--default-black);
+  padding: 12px;
+  font-size: 16px;
+}
+
+.btn {
+  font-family: "Spline Sans Mono", monospace;
+  border: 2px solid var(--default-black);
+  box-shadow: 4px 6px var(--default-black);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 6px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn.logout {
+  background-color: var(--pink-200);
+}
+.btn.all {
+  background-color: var(--yellow-300);
+}
+.btn.completed {
+  background-color: var(--green-100);
+}
+.btn.active {
+  background-color: var(--blue-200);
+}
+.btn.toggled {
+  transform: translateY(3px);
+  box-shadow: 1px 2px var(--default-black);
+}
+
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: 1px 2px var(--default-black);
+}/*# sourceMappingURL=styles.css.map */
