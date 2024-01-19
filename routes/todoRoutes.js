@@ -7,7 +7,7 @@ const Todo = require('../models/todoModel');
 const todo = todoRouter.get('/', (req, res)=> {
     Todo.find()
     .then((result)=> {
-        res.render('index', {title: 'Todo App', todo: result})
+        res.render('index', {title: 'Todo App', todo: result, numTask: result.length})
     })
     .catch((err)=> {
         console.log(err);
@@ -45,6 +45,18 @@ const todoCreate = todoRouter.post('/add-task', async (req, res)=>{
         if(isAdded){
             res.json({status: 200});
             console.log('Added');
+        }
+    } catch (err) {
+        console.log(err);
+    }
+})
+
+// update
+const todoUpdate = todoRouter.put('/update-task', async (req, res)=> {
+    try{
+        
+        if(req.body.tasks === true){
+            
         }
     } catch (err) {
         console.log(err);

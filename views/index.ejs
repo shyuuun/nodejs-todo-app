@@ -9,7 +9,7 @@
         <section class="details">
             <div class="div">
                 <h4>Time: 11:25pm</h3>
-                <p>Number of tasks: 1</p>
+                <p>Number of tasks: <%=numTask%></p>
             </div>
             <div class="multiple-btn">
                 <button class="btn all">All</button>
@@ -18,7 +18,7 @@
             </div>
         </section>
         <section class="add-task">
-            <input type="text" name="" id="" placeholder="Add a new task">
+            <input type="text" name="" id="add-task" placeholder="Add a new task">
         </section>
         <section class="all-tasks">
             <ul>
@@ -47,36 +47,6 @@
                         </button>
                     </li>
                 <% }); %>
-
-                <li>
-                    <input type="checkbox" name="" id="">
-                    Do something.. 
-                    <a href="">
-                        <box-icon name='trash-alt' type='solid' ></box-icon>
-                    </a>
-                </li>
-                <li>
-                    <input type="checkbox" name="" id="">
-                    Do something.. 
-                    <a href="">
-                        <box-icon name='trash-alt' type='solid' ></box-icon>
-                    </a>
-                </li>
-                <li>
-                    <input type="checkbox" name="" id="">
-                    Do something.. 
-                    <a href="">
-                        <box-icon name='trash-alt' type='solid' ></box-icon>
-                    </a>
-                </li>
-                <li>
-                    <input type="checkbox" name="" id="">
-                    Do something.. 
-                    <a href="">
-                        <box-icon name='trash-alt' type='solid' ></box-icon>
-                    </a>
-                </li>
-
             </ul>
         </section>
     </div>
