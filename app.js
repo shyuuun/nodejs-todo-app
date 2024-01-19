@@ -4,8 +4,6 @@ const mongoose = require('mongoose');
 const todoRoutes = require('./routes/todoRoutes');
 const conf = require('./config/init');
 
-
-
 /*
     connect our database here. check config/init.js 
     to insert your credentials
@@ -27,6 +25,7 @@ app.use(express.static('public/'));
 app.use(express.urlencoded( {
     extended: true
 }));
+
 
 
 // routes

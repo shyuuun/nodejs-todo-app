@@ -15,4 +15,23 @@ const todo = todoRouter.get('/', (req, res)=> {
 
 });
 
+// testing for adding a data to our mongo db
+todoRouter.get('/add-task', (req, res)=> {
+    // here is our sample data that will send to our db.
+    const dummyTask = new Todo({
+        tasks: 'Play games',
+        isCompleted: false
+    });
+    
+    dummyTask.save()
+    .then((result)=>{
+        res.redirect('/');
+        console.log('Saved');
+    })
+    .catch((err)=> {
+        console.log(err);
+    })
+});
+
+
 module.exports = todoRouter;

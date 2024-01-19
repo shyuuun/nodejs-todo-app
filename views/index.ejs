@@ -35,7 +35,19 @@
                 
                 </li>
                 -->
-                <% todo %>
+                <% todo.forEach(tasks => { %>
+                    <li class="<% if (tasks.isCompleted === true) { %>
+                        completed <% } %> ">
+                        <%=tasks.tasks%>
+                        <a class="delete" href="">
+                            <box-icon name='trash-alt' type='solid' ></box-icon>
+                        </a>
+                        <button class="edit">
+                            <box-icon name='edit-alt' ></box-icon>
+                        </button>
+                    </li>
+                <% }); %>
+
                 <li>
                     <input type="checkbox" name="" id="">
                     Do something.. 
