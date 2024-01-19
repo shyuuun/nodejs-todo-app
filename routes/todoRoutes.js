@@ -21,7 +21,7 @@ const todoDelete = todoRouter.delete('/delete-task/:id', async (req, res)=> {
         const deletedTask = await Todo.findByIdAndDelete(id);
         
         if(deletedTask) {
-            res.json({redirect: '/'})
+            res.json({status: 200});
             console.log('Deleted');
         }
     } catch(err){

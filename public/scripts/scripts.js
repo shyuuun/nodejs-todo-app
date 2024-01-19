@@ -1,7 +1,11 @@
 const delbtn = document.querySelector('a.delete');
 
 delbtn.addEventListener('click', async(e)=>{
+    const listItem = document.querySelector('li');
+    listItem.parentNode.removeChild(listItem);
+    
     const reqInfo = `/todo/delete-task/${delbtn.dataset.id}`;
+
     try {
         const res = await fetch(reqInfo, {
             method: 'DELETE',
@@ -11,7 +15,8 @@ delbtn.addEventListener('click', async(e)=>{
         });
 
         const data = await res.json();
-        window.location.href = data.redirect;
+        console.log(data.status);
+
     } catch(err){
         console.log(err)
     }
