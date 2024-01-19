@@ -1,17 +1,32 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
 const todoRoutes = require('./routes/todoRoutes');
-const port = 3000;
+const conf = require('./config/init');
+
+
+
+/*
+    connect our database here. check config/init.js 
+    to insert your credentials
+*/
+mongoose.connect(conf.uri)
+    .then((result)=> {
+        console.log('Connected to database');
+    })
+    .catch((err)=> {
+        console.log(err);
+    });
+
 
 // view engine
 app.set('view engine', 'ejs');
+
 // middleware
 app.use(express.static('public/'));
 app.use(express.urlencoded( {
     extended: true
 }));
-
-
 
 
 // routes
@@ -27,7 +42,7 @@ app.get('/', (req, res)=> {
 });
 */
 
-app.listen(port, ()=> {
-    console.log(`Port is running in ${port}`);
+app.listen(conf.port, ()=> {
+    console.log(`Port is running in ${conf.port}`);
 });
 
