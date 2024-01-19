@@ -15,6 +15,7 @@ const todo = todoRouter.get('/', (req, res)=> {
 
 });
 
+// delete
 const todoDelete = todoRouter.delete('/delete-task/:id', async (req, res)=> {
     try {
         const id = req.params.id;
@@ -30,9 +31,28 @@ const todoDelete = todoRouter.delete('/delete-task/:id', async (req, res)=> {
 
 });
     
+// create
+const todoCreate = todoRouter.post('/add-task', async (req, res)=>{
+    try{
+        const addTask = new Todo({
+            tasks: req.body.tasks,
+            // we want it to display active our task
+            isCompleted: false
+        });
+
+        const isAdded = await addTask.save();
+
+        if(isAdded){
+            res.json({status: 200});
+            console.log('Added');
+        }
+    } catch (err) {
+        console.log(err);
+    }
+})
 
 // testing for adding a data to our mongo db
-todoRouter.get('/add-task', (req, res)=> {
+todoRouter.get('/add', (req, res)=> {
     // here is our sample data that will send to our db.
     const dummyTask = new Todo({
         tasks: 'Play games',
