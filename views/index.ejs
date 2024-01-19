@@ -39,10 +39,10 @@
                     <li class="<% if (tasks.isCompleted === true) { %>
                         completed <% } %> ">
                         <%=tasks.tasks%>
-                        <a class="delete" href="">
+                        <a class="delete" data-id="<%=tasks._id %>">
                             <box-icon name='trash-alt' type='solid' ></box-icon>
                         </a>
-                        <button class="edit">
+                        <button class="edit" onclick="">
                             <box-icon name='edit-alt' ></box-icon>
                         </button>
                     </li>
@@ -81,5 +81,6 @@
         </section>
     </div>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="scripts/scripts.js"></script>
 </body>
 </html>

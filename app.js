@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const morgan = require('morgan');
+
 const todoRoutes = require('./routes/todoRoutes');
 const conf = require('./config/init');
 
@@ -25,6 +27,7 @@ app.use(express.static('public/'));
 app.use(express.urlencoded( {
     extended: true
 }));
+app.use(morgan('dev'));
 
 
 

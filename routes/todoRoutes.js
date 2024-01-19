@@ -3,7 +3,7 @@ const todoRouter = express.Router();
 
 const Todo = require('../models/todoModel');
 
-
+// display all results
 const todo = todoRouter.get('/', (req, res)=> {
     Todo.find()
     .then((result)=> {
@@ -14,6 +14,22 @@ const todo = todoRouter.get('/', (req, res)=> {
     })
 
 });
+
+const todoDelete = todoRouter.delete('/delete-task/:id', async (req, res)=> {
+    try {
+        const id = req.params.id;
+        const deletedTask = await Todo.findByIdAndDelete(id);
+        
+        if(deletedTask) {
+            res.json({redirect: '/'})
+            console.log('Deleted');
+        }
+    } catch(err){
+        console.log(err);
+    }
+
+});
+    
 
 // testing for adding a data to our mongo db
 todoRouter.get('/add-task', (req, res)=> {
