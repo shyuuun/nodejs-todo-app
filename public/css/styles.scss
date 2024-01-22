@@ -105,6 +105,15 @@ body {
                     right: 50px;
                     top: 9px;
                 }
+                .edit-input {
+                    display: none;
+                    position: absolute;
+                    z-index: 1;
+
+                    input[type="text"] { 
+                        outline: none;
+                    }
+                }
             }
             li.completed {
                 text-decoration: line-through;
@@ -115,6 +124,8 @@ body {
     }
 
 }
+
+
 
 // Buttons
 .btn { 
@@ -145,7 +156,7 @@ body {
         background-color: var(--blue-200);
     }
 
-    &.toggled {
+    &.isToggled {
         transform: translateY(3px);
         box-shadow: 1px 2px var(--default-black);
     }

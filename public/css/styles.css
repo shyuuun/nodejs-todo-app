@@ -98,6 +98,14 @@ body {
   right: 50px;
   top: 9px;
 }
+.container .all-tasks ul li .edit-input {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+.container .all-tasks ul li .edit-input input[type=text] {
+  outline: none;
+}
 .container .all-tasks ul li.completed {
   text-decoration: line-through;
   background-color: rgba(0, 0, 0, 0.2);
@@ -127,7 +135,7 @@ body {
 .btn.active {
   background-color: var(--blue-200);
 }
-.btn.toggled {
+.btn.isToggled {
   transform: translateY(3px);
   box-shadow: 1px 2px var(--default-black);
 }
