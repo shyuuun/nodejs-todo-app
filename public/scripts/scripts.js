@@ -1,16 +1,13 @@
 // date
-setInterval(()=>{
+setInterval(() => {
     const date = new Date()
-document.getElementById('date').textContent = date.getHours() + ":" + date.getMinutes();
+    document.getElementById('date').textContent = date.getHours() + ":" + date.getMinutes();
 }, 1000);
 
-
-deleteTask = async(taskId) => {
+// delete
+deleteTask = async (taskId) => {
     const delbtn = document.querySelector(`a.delete[data-id="${taskId}"]`);
-        
-    const listItem = document.querySelector('li');
-    listItem.parentNode.removeChild(listItem);    
-    
+
     const reqInfo = `/todo/delete-task/${taskId}`;
 
     try {
@@ -22,18 +19,18 @@ deleteTask = async(taskId) => {
         });
 
         const result = await res.json();
-        
-        if(result.status === 200){
+
+        if (result.status === 200) {
             window.location.href = '/';
         }
 
-    } catch(err){
+    } catch (err) {
         console.log(err)
     }
 }
 
 
-
+// add tasks
 const add_task = document.getElementById('add-task');
 
 add_task.addEventListener('keydown', async (e) => {
@@ -42,9 +39,9 @@ add_task.addEventListener('keydown', async (e) => {
         tasks: add_task.value,
         isCompleted: false
     }
-    try{
-        if(e.code === 'Enter'){
-            
+    try {
+        if (e.code === 'Enter') {
+
             const response = await fetch(reqInfo, {
                 method: "POST",
                 headers: {
@@ -55,7 +52,7 @@ add_task.addEventListener('keydown', async (e) => {
 
             const result = await response.json();
 
-            if(result.status === 200){
+            if (result.status === 200) {
                 window.location.href = '/';
             }
 
@@ -72,9 +69,9 @@ add_task.addEventListener('keydown', async (e) => {
 showInput = taskId => {
     const editInput = document.querySelector(`.edit-input[data-id="${taskId}"]`);
     if (window.getComputedStyle(editInput).display == 'none') {
-        editInput.style.display = 'block'; 
+        editInput.style.display = 'block';
     } else {
-        editInput.style.display = 'none'; 
+        editInput.style.display = 'none';
     }
 }
 
@@ -96,10 +93,10 @@ updateTask = async taskId => {
         });
         const result = await response.json();
 
-        if(result.status === 200){
+        if (result.status === 200) {
             window.location.href = '/';
         }
-    } catch(err) {
+    } catch (err) {
         console.log(err);
     }
 }
@@ -108,7 +105,7 @@ updateCheckTask = async taskId => {
     const editCheckBox = document.querySelector(`input[name="${taskId}"][type="checkbox"]`);
     const reqInfo = `/todo/update-task/${taskId}`;
     let data;
-    if(editCheckBox.checked == true){
+    if (editCheckBox.checked == true) {
         data = {
             isCompleted: true
         }
@@ -127,12 +124,48 @@ updateCheckTask = async taskId => {
         });
         const result = await response.json();
 
-        if(result.status === 200){
+        if (result.status === 200) {
             window.location.href = '/';
         }
-    } catch(err) {
+    } catch (err) {
         console.log(err);
     }
 }
+
+// display all completed tasks
+fliterTask = (status) => {
+    const tasks = document.querySelectorAll('li');
+
+    tasks.forEach(task => {
+    const isCompleted = task.classList.contains('completed');
+    
+    switch(status){
+        case 'active':
+            if(isCompleted){
+                task.style.display = 'none';
+            } else {
+                task.style.display = 'block';
+            }
+            break;
+        case 'completed':
+            if(!isCompleted){
+                task.style.display = 'none';
+
+            } else {
+                task.style.display = 'block';
+            }
+            break;
+        default:
+            task.style.display = 'block';
+    }
+    });
+
+
+}
+
+
+
+
+
 
 

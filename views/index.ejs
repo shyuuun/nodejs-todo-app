@@ -8,14 +8,14 @@
         </section>
         <section class="details">
             <div class="div">
-                <span>Time:</span>
-                <h4 id="date"></h3>
+                
+                <span>Time:<h4 id="date"></h3></span>
                 <p>Number of tasks: <%=numTask%></p>
             </div>
             <div class="multiple-btn">
-                <button class="btn all isToggled">All</button>
-                <button class="btn active">Active</button>
-                <button class="btn completed">Completed</button>
+                <button class="btn all isToggled" onclick="fliterTask('all')">All</button>
+                <button class="btn active" onclick="fliterTask('active')">Active</button>
+                <button class="btn completed" onclick="fliterTask('completed')">Completed</button>
             </div>
         </section>
         <section class="add-task">
@@ -25,8 +25,8 @@
             <ul>
                 <% todo.forEach(tasks => { %>
 
-                    <li class="<% if (tasks.isCompleted === true) { %>
-                        completed<% } %> ">
+                    <li class="<%if (tasks.isCompleted === true) {%>
+                        completed<%}%> ">
                         <div class="edit-input" data-id="<%=tasks._id %>">
                             <input type="text" name="<%=tasks._id %>" id="edit-task" placeholder="Edit your task">
                             <button onclick="updateTask('<%=tasks._id %>')">Update!</button>
