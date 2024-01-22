@@ -4,6 +4,7 @@ if(delbtn) {
     delbtn.addEventListener('click', async()=>{
         const listItem = document.querySelector('li');
         listItem.parentNode.removeChild(listItem);    
+        
         const reqInfo = `/todo/delete-task/${delbtn.dataset.id}`;
     
         try {
@@ -62,7 +63,7 @@ add_task.addEventListener('keydown', async (e) => {
 
 
 // click edit in every task
-editTask = (taskId) => {
+showInput = (taskId) => {
     const editInput = document.querySelector(`.edit-input[data-id="${taskId}"]`);
     if (window.getComputedStyle(editInput).display == 'none') {
         editInput.style.display = 'block'; 
@@ -72,6 +73,12 @@ editTask = (taskId) => {
 }
 
 // updating task
+const editTask = document.getElementById('edit-task');
 
+editTask.addEventListener('keydown', async (e)=> {
+    const reqInfo = `/update-task/${editTask.getAttribute("name")}`
+    // tangina?
+    console.log(reqInfo);
+});
 
 

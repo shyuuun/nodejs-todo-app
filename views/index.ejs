@@ -27,14 +27,16 @@
                     <li class="<% if (tasks.isCompleted === true) { %>
                         completed <% } %> ">
                         <div class="edit-input" data-id="<%=tasks._id %>">
-                            <input type="text" name="" id="edit-task" placeholder="Edit your task">
+                            <input type="text" name="<%=tasks._id %>" id="edit-task" placeholder="Edit your task">
                         </div>
+
                         <%=tasks.tasks%>
+                        
                         <a class="delete" data-id="<%=tasks._id %>">
                             <box-icon name='trash-alt' type='solid' ></box-icon>
                         </a>
 
-                        <button class="edit" onclick="editTask('<%= tasks._id %>')">
+                        <button class="edit" onclick="showInput('<%= tasks._id %>')">
                             <box-icon name='edit-alt' ></box-icon>
                         </button>
                     </li>

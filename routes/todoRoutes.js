@@ -51,9 +51,8 @@ const todoCreate = todoRouter.post('/add-task', async (req, res)=>{
     }
 })
 
-// update if the task want to be changed
+// update if the task is completed or want to change
 const todoUpdateTask = todoRouter.put('/update-task/:id', async (req, res)=> {
-    // TO:DO if our iscompleted is change. i think we should get the data first
     try {
         const id = req.params.id;
         let isUpdated;
@@ -65,12 +64,12 @@ const todoUpdateTask = todoRouter.put('/update-task/:id', async (req, res)=> {
 
         switch(data){
             case data.tasks == null:
-                await Todo.findByIdAndUpdate(id, {
+                isUpdated = await Todo.findByIdAndUpdate(id, {
                     isCompleted: req.body.isCompleted
                 });
                 break;
             case data.isCompleted == null:
-                await Todo.findByIdAndUpdate(id, {
+                isUpdated = await Todo.findByIdAndUpdate(id, {
                     tasks: req.body.tasks,
                 });
                 break;
