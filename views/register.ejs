@@ -14,15 +14,19 @@
 
             <p>Fill out your details</p>
         </section>
-        <form action="#" method="post">
+        <!-- TO:DO make a flash message for errors -->
+        <form action="/user/register" method="post">
+            <label for="register-user">Username</label>
+            <input type="text" name="username" id="register-user"><br>
+
             <label for="register-email">Email</label>
-            <input type="email" name="" id="register-email"><br>
+            <input type="email" name="email" id="register-email"><br>
 
             <label for="register-pass">Password</label>
-            <input type="password" name="" id="register-pass"><br>
+            <input type="password" name="pass" id="register-pass"><br>
 
             <label for="register-confirm-pass">Confirm Password</label>
-            <input type="password" name="" id="register-confirm-pass"><br>
+            <input type="password" name="confirmpass" id="register-confirm-pass"><br>
             <p>Have an account? <a href="/user/login">Click Here</a></p>
             <button>Sign In!</button>
         </form>

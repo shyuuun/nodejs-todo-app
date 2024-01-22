@@ -13,6 +13,16 @@ const register = userRouter.get('/register', (req, res)=> {
     res.render('register');
 })
 
+const sendUser = userRouter.post('/register', (req, res)=> {
+    const {username, email, pass, confirmpass} = req.body
+
+    if (!username || !email || !pass || !confirmpass) {
+        res.render('register', {err: "All Fields are Required!"})
+    }
+
+    // TO:DO completed validation of user account and send it to mongo db
+})
+
 
 
 
