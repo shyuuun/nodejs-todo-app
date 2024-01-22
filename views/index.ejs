@@ -8,7 +8,8 @@
         </section>
         <section class="details">
             <div class="div">
-                <h4>Time: 11:25pm</h3>
+                <span>Time:</span>
+                <h4 id="date"></h3>
                 <p>Number of tasks: <%=numTask%></p>
             </div>
             <div class="multiple-btn">
@@ -25,14 +26,18 @@
                 <% todo.forEach(tasks => { %>
 
                     <li class="<% if (tasks.isCompleted === true) { %>
-                        completed <% } %> ">
+                        completed<% } %> ">
                         <div class="edit-input" data-id="<%=tasks._id %>">
                             <input type="text" name="<%=tasks._id %>" id="edit-task" placeholder="Edit your task">
+                            <button onclick="updateTask('<%=tasks._id %>')">Update!</button>
                         </div>
-
-                        <%=tasks.tasks%>
                         
-                        <a class="delete" data-id="<%=tasks._id %>">
+                        <input <% if(tasks.isCompleted === true) { %> checked="true" <% } %> 
+                        type="checkbox" name="<%=tasks._id %>" onclick="updateCheckTask('<%=tasks._id %>')"">
+                        
+                        <%=tasks.tasks%>
+
+                        <a class="delete" data-id="<%=tasks._id %>" onclick="deleteTask('<%= tasks._id %>')">
                             <box-icon name='trash-alt' type='solid' ></box-icon>
                         </a>
 

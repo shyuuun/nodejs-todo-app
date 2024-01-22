@@ -104,7 +104,14 @@ body {
   z-index: 1;
 }
 .container .all-tasks ul li .edit-input input[type=text] {
+  font-family: "Spline Sans Mono", monospace;
+  border: none;
   outline: none;
+}
+.container .all-tasks ul li .edit-input button {
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 .container .all-tasks ul li.completed {
   text-decoration: line-through;

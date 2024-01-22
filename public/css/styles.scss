@@ -111,7 +111,14 @@ body {
                     z-index: 1;
 
                     input[type="text"] { 
+                        font-family: "Spline Sans Mono", monospace;
+                        border: none;
                         outline: none;
+                    }
+                    button {
+                        cursor: pointer;
+                        border: none;
+                        background: none;
                     }
                 }
             }
