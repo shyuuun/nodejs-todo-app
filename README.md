@@ -9,7 +9,7 @@
 A neo brutalist inspired To-Do app. 
 
 ## Built With
-I created this app in the following technologies: 
+I created this app using the following technologies:
 
 * [![NodeJS]][NodeJS-url]
 * [![Express.js]][Express.js-url]
