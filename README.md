@@ -81,7 +81,8 @@ Select trashbin and *poop*
   - [] weird card behaviour
   - [] Greeting and time fix
   - [] Fixing buttons
-  
+- [] Responsiveness
+     - [] have button when adding task (for mobile)
 
 
 
