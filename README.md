@@ -1,6 +1,12 @@
-# To-Do App
 
-A neo brutalist inspired To-Do app.
+
+
+![myapp](https://github.com/shyuuun/nodejs-todo-app/assets/69673796/15810356-ee4e-4f98-98c6-9a5eda08bd81)
+
+
+<h1 align="center">To-Do App </h1>
+
+A neo brutalist inspired To-Do app. 
 
 ## Built With
 I created this app in the following technologies: 
@@ -33,7 +39,7 @@ This are the instructions on setting up your project locally. To get a local cop
     const pass = 'YOUR_PASSWORD_HERE' // 'YOUR PASSWORD'
     const uri = `mongodb+srv://${username}:${pass}@`; // YOUR URI HERE
    ```
-4. S
+
 
 ## Usage
 
