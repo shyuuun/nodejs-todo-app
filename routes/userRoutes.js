@@ -4,7 +4,6 @@ const userRouter = express.Router();
 const User = require('../models/userModel');
 
 
-
 const login = userRouter.get('/login', (req, res)=> {
     res.render('login');
 })

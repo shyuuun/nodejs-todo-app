@@ -1,7 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const dotenv = require('dotenv').config();
 const cookieParser = require('cookie-parser');
 
 const flash = require('express-flash');
@@ -12,14 +12,15 @@ const morgan = require('morgan');
 
 const todoRoutes = require('./routes/todoRoutes');
 const userRoutes = require('./routes/userRoutes');
-const conf = require('./config/init');
 const Tokens = require('csrf');
 
+const port = process.env.PORT || 5000;
+const URI = process.env.URI
 /*
     connect our database here. check config/init.js 
     to insert your credentials
 */
-mongoose.connect(conf.uri)
+mongoose.connect(URI)
     .then((result)=> {
         console.log('Connected to database');
     })
@@ -53,12 +54,6 @@ app.use(passport.session());
 
 app.use(flash());
 
-app.use(function (req, res, next) {
-    res.locals.success_messages = req.flash('success_messages');
-    res.locals.error_messages = req.flash('error_messages');
-    res.locals.error = req.flash('error');
-    next();
-});
 
 // routes
 app.get('/', (req, res) => {
@@ -70,14 +65,14 @@ app.get('/user', (req, res) => {
 });
 
 app.use('/todo', todoRoutes);
-app.use('/user', userRoutes)
+app.use('/user', userRoutes);
 /*
 app.get('/', (req, res)=> {
     res.send('Hello!');
 });
 */
 
-app.listen(conf.port, ()=> {
-    console.log(`Port is running in ${conf.port}`);
+app.listen(port, ()=> {
+    console.log(`Port is running in ${port}`);
 });
 
