@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const dotenv = require('dotenv').config();
 const cookieParser = require('cookie-parser');
+
 const flash = require('express-flash');
 const session = require('express-session');
 const passport = require('passport');
